@@ -1,19 +1,15 @@
 <?php
-// bu dosya baglan.php dosyasıdır.
+error_reporting(E_ALL ^ E_NOTICE);
 $sunucu="localhost";
 $kullanici="root";
 $sifre="";
 $veritabani="eventguide";
+$con = mysqli_connect($sunucu,$kullanici,$sifre,$veritabani);
+mysqli_query($con,"SET NAMES 'utf8'");
+mysqli_query($con,"SET CHARACTER SET utf8_general_ci");
 
-if (@mysql_connect($sunucu,$kullanici,$sifre)==false){
-   $mesaj="<b>Hata</b>: Bağlantı başarısız!<br>";
-   $mesaj.="<b>Hata açıklaması</b>: ".mysql_error();
-   die($mesaj);
-}
-
-if (@mysql_select_db($veritabani)==false){
-   $mesaj="<b>Hata</b>: $veritabani veritabanı seçilemedi!<br>";
-   $mesaj.="<b>Hata açıklaması</b>: ".mysql_error();
-   die($mesaj);
-}
+if (mysqli_connect_errno())
+  {
+  echo "<h1>Failed to connect to MySQL: " . mysqli_connect_error(). "</h1>";
+  }
 ?>
