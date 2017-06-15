@@ -12,8 +12,6 @@ $bayrak=$_POST['bayrak'];
   $hour = $_POST['hour'] ;
   $location = $_POST['location'] ;
   $owner = $_POST['owner'];
-  
-  include("uploadimage.php");
 
   $sql = "SELECT * FROM `community` where  name= '".$owner."' ";
   $result = mysqli_query($con, $sql);

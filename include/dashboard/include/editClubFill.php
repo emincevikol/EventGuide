@@ -13,6 +13,7 @@ if($type==1){
   while($inf = mysqli_fetch_assoc($result)) {
     $clubId=$inf['id'];
     $name=$inf['name'];
+    $advisor=$inf['advisor'];
     $description=$inf['description'];
   }
   $sql2 = "select * from `president` where id='".$presidentId."' ";
@@ -34,7 +35,9 @@ else if ($type==2){
   while($inf = mysqli_fetch_assoc($result)) {
     $clubId=$inf['id'];
     $name=$inf['name'];
+    $advisor=$inf['advisor'];
     $description=$inf['description'];
+
   }
   $sql2 = "select * from `president` where id='".$presidentId."' ";
   $result2=mysqli_query($con,$sql2);
@@ -53,31 +56,38 @@ else if ($type==2){
     <div class="row">
       <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
-          <input type="text" name="editclubname" id="editclubname" class="form-control input-sm" placeholder="Community Name" required value="<?=$name;?>" >
+          <input type="text" name="editclubname" id="editclubname" class="form-control input-sm" placeholder="Topluluk Adı" required value="<?=$name;?>" >
         </div>
       </div>
     </div>
     <div class="row">
       <div class="col-xs-6 col-sm-6 col-md-6">
         <div class="form-group">
-          <input type="text" name="editfname" id="editfname" class="form-control input-sm" placeholder="President First Name" required value="<?=$fname;?>">
+          <input type="text" name="editfname" id="editfname" class="form-control input-sm" placeholder="Başkan Adı" required value="<?=$fname;?>">
         </div>
       </div>
       <div class="col-xs-6 col-sm-6 col-md-6">
         <div class="form-group">
-          <input type="text" name="editlname" id="editlname" class="form-control input-sm" placeholder="President Last Name" required value="<?=$lname;?>">
+          <input type="text" name="editlname" id="editlname" class="form-control input-sm" placeholder="Başkan Soyadı" required value="<?=$lname;?>">
         </div>
       </div>
     </div>
     <div class="row">
       <div class="col-xs-6 col-sm-6 col-md-6">
         <div class="form-group">
-          <input type="text" name="editmobile" id="editmobile"  class="form-control input-sm" placeholder="Mobile Phone" required value="<?=$mobile;?>">
+          <input type="text" name="editmobile" id="editmobile"  class="form-control input-sm" placeholder="Başkan Telefon" required value="<?=$mobile;?>">
         </div>
       </div>
       <div class="col-xs-6 col-sm-6 col-md-6">
         <div class="form-group">
-          <input type="text" name="editnumber"  id="editnumber" class="form-control input-sm" placeholder="Student Number" required value="<?=$number;?>">
+          <input type="text" name="editnumber"  id="editnumber" class="form-control input-sm" placeholder="Başkan Öğr. No" required value="<?=$number;?>">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group">
+          <input type="text" name="editadvisor" id="editadvisor" class="form-control input-sm" placeholder="Danışman" required value="<?=$advisor;?>">
         </div>
       </div>
     </div>
@@ -88,6 +98,6 @@ else if ($type==2){
         </div>
       </div>
     </div>
-<input type="submit" value="Register" class="btn btn-info btn-block" class="btn btn-info btn-block">
+<input type="submit" value="Kaydet" class="btn btn-info btn-block" class="btn btn-info btn-block">
 
 </form>

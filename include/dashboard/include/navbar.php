@@ -10,17 +10,19 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.php">CBU Events Admin Panel</a>
+                <a class="navbar-brand" href="index.php">CBU Events Yönetim Paneli</a>
             </div>
             <div class="collapse navbar-collapse navbar-ex1-collapse">
               <form  class="navbar-form navbar-right">
 
-                <input type="button" onclick=<?php echo $profile ?> style=" min-width: 100px;" class="btn btn-info" value=" Main Page">
+                <input type="button" class="btn btn-info " onclick="location.href='../../userprofile.php';" value="<?php echo $_SESSION['fname']." ".$_SESSION['lname']; ?>">
+
+                <input type="button" onclick=<?php echo $profile ?> style=" min-width: 100px;" class="btn btn-success" value="Ana Sayfa">
 
                 <input type="button" onclick=<?php echo $logout ?> style=" min-width: 100px; margin-right: 20px;" class="btn btn-danger" value="<?php if($loginstatus){
-                                                            echo "Sign Out";
+                                                            echo "Çıkış";
                                                           }else {
-                                                            echo "Sign in";}
+                                                            echo "Giriş";}
                                                     ?>">
 
 
@@ -34,20 +36,20 @@
                         <a href="index.php"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
                     </li>
                     <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-graduation-cap"></i> Student <i class="fa fa-fw fa-caret-down"></i></a>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-graduation-cap"></i> Öğrenci <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo" class="collapse">
                             <li>
-                                <a href="communities.php">Communities</a>
+                                <a href="communities.php">Topluluklar</a>
                             </li>
                             <li>
-                                <a href="clubs.php">Clubs</a>
+                                <a href="clubs.php">Klüpler</a>
                             </li>
                         </ul>
                     </li>
                     <li>
-                        <a href="events.php"><i class="fa fa-fw fa-calendar"></i> Events</a>
+                        <a href="events.php"><i class="fa fa-fw fa-calendar"></i> Etkinlikler</a>
                     </li>
-                  
+
 
                   </ul>
             </div>

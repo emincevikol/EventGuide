@@ -46,7 +46,6 @@ if(isset($_POST['email']) && isset($_POST['password']) && $_POST['password']!=nu
                         $_SESSION['presidentOf']=$inf2["name"];
                         ?>
                             <script>
-                              alert("Başarıyla giriş yaptınız! Şimdi anasayfaya yönlendiriliyorsunuz.");
                               window.top.location = 'dashboard/index.php';
                             </script>
                         <?php
@@ -59,7 +58,6 @@ if(isset($_POST['email']) && isset($_POST['password']) && $_POST['password']!=nu
                         $_SESSION['presidentOf']=$inf2["name"];
                         ?>
                             <script>
-                              alert("Başarıyla giriş yaptınız! Şimdi anasayfaya yönlendiriliyorsunuz.");
                              window.top.location = 'dashboard/index.php';
                             </script>
                         <?php
@@ -78,18 +76,27 @@ if(isset($_POST['email']) && isset($_POST['password']) && $_POST['password']!=nu
                         $_SESSION['admin']=true;
                           ?>
                           <script>
-                            alert("Admin olarak Başarıyla giriş yaptınız!");
                             window.top.location = 'dashboard/index.php';
                           </script>
                           <?php
                         }
                         else {
-                          ?>
-                          <script>
-                            alert("Başarıyla giriş yaptınız! Şimdi anasayfaya yönlendiriliyorsunuz.");
-                            window.top.location = '../userprofile.php';
-                          </script>
-                          <?php
+                          $sql2 = "SELECT * FROM `student` WHERE studentno='".$_SESSION['number']."' ";
+                          $result2 = mysqli_query($con, $sql2);
+                          $row2=mysqli_num_rows($result2);
+                          if($row2==0)
+                          {
+                            ?><script>
+                              window.top.location = '../registerform.php';
+                            </script>
+                            <?php
+                          }
+                          else{
+                            ?><script>
+                              window.top.location = '../userprofile.php';
+                            </script>
+                            <?php
+                          }
                         }
                       }
                   }

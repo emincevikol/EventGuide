@@ -9,6 +9,7 @@ include("../../config.php");
  $clubname=$_POST['clubname'];
  $fname=$_POST['fname'];
  $lname=$_POST['lname'];
+ $advisor=$_POST['advisor'];
  $number=$_POST['number'];
  $email=$_POST['email'];
  $mobile=$_POST['mobile'];
@@ -28,7 +29,7 @@ if($type==1){
 
   if($flag){
     $sql1 = "UPDATE `president` SET `fname` = '".$fname."',  `lname` = '".$lname."', `number` = '".$number."', `email` = '".$email."', `mobile` = '".$mobile."', `manages` = '".$manages."', `type` = 'club' WHERE `president`.`id` = '".$presidentId."' ";
-    $sql2 = "UPDATE `club` SET `name` = '".$clubname."', `description` = '".$description."' WHERE `club`.`id` = '".$clubid."' ";
+    $sql2 = "UPDATE `club` SET `name` = '".$clubname."',`advisor` = '".$advisor."', `description` = '".$description."' WHERE `club`.`id` = '".$clubid."' ";
 
     if (mysqli_query($con,$sql2) && mysqli_query($con,$sql1)) {
       echo "ok";
@@ -51,7 +52,7 @@ if ($type==2){
   }
   if ($flag) {
     $sql1 = "UPDATE `president` SET `fname` = '".$fname."', `lname` = '".$lname."', `number` = '".$number."', `email` = '".$email."', `mobile` = '".$mobile."', `manages` = '".$manages."', `type` = 'community' WHERE `president`.`id` = '".$presidentId."' ";
-    $sql2 = "UPDATE `community` SET `name` = '".$clubname."', `description` = '".$description."' WHERE `community`.`id` = '".$clubid."' ";
+    $sql2 = "UPDATE `community` SET `name` = '".$clubname."',`advisor` = '".$advisor."' , `description` = '".$description."' WHERE `community`.`id` = '".$clubid."' ";
 
     if (mysqli_query($con,$sql2) && mysqli_query($con,$sql1)) {
       echo "ok";

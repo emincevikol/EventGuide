@@ -10,7 +10,7 @@ include("../config.php");
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="myModalLabel">Add New Club/Community</h4>
+          <h4 class="modal-title" id="myModalLabel">Klüp Ekle</h4>
         </div>
         <div class="modal-body">
             <div class="container">
@@ -18,38 +18,46 @@ include("../config.php");
                 <div class="col-xs-12 col-sm-8 col-md-6 center ">
                 	<div class="panel panel-default">
                   	<div class="panel-body" id="addclubcontents">
-                      <form  action="Javascript:AddClub('<?=$type;?>');" role="form" method="post" role="form" style="display: block;">
+                      <form  action="Javascript:AddClub();" role="form" method="post" role="form" style="display: block;">
                           <div class="row">
                             <div class="col-xs-12 col-sm-12 col-md-12">
                               <div class="form-group">
-                                <input type="text" name="clubname" id="clubname" class="form-control input-sm" placeholder="Club/Community Name" required>
+                                <input type="text" name="clubname" id="clubname" class="form-control input-sm" placeholder="Klüp Adı" required>
                               </div>
                             </div>
                           </div>
                           <div class="row">
                             <div class="col-xs-6 col-sm-6 col-md-6">
                               <div class="form-group">
-                                <input type="text" name="fname" id="fname" class="form-control input-sm" placeholder="President First Name" required>
+                                <input type="text" name="fname" id="fname" class="form-control input-sm" placeholder="Başkan Adı" required>
                               </div>
                             </div>
                             <div class="col-xs-6 col-sm-6 col-md-6">
                               <div class="form-group">
-                                <input type="text" name="lname" id="lname" class="form-control input-sm" placeholder="President Last Name" required>
+                                <input type="text" name="lname" id="lname" class="form-control input-sm" placeholder="Başkan Soyadı" required>
                               </div>
                             </div>
                           </div>
                           <div class="row">
                             <div class="col-xs-6 col-sm-6 col-md-6">
                               <div class="form-group">
-                                <input type="text" name="mobile" id="mobile" class="form-control input-sm" placeholder="Mobile Phone" required>
+                                <input type="text" name="mobile" id="mobile" class="form-control input-sm" placeholder="Başkan Telefonu" required>
                               </div>
                             </div>
                             <div class="col-xs-6 col-sm-6 col-md-6">
                               <div class="form-group">
-                                <input type="text" name="number" id="number" class="form-control input-sm" placeholder="Student Number" required>
+                                <input type="text" name="number" id="number" class="form-control input-sm" placeholder="Başkan Öğrenci Numarası" required>
                               </div>
                             </div>
                           </div>
+                          <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                              <div class="form-group">
+                                <input type="text" name="advisor" id="advisor" class="form-control input-sm" placeholder="Danışman" required>
+                              </div>
+                            </div>
+                          </div>
+
                           <div class="row">
                             <div class="col-xs-12 col-sm-12 col-md-12">
                               <div class="form-group">
@@ -57,7 +65,79 @@ include("../config.php");
                               </div>
                             </div>
                           </div>
-        			    		<input type="submit" value="Register" class="btn btn-info btn-block" class="btn btn-info btn-block">
+        			    		<input type="submit" value="Kaydet" class="btn btn-info btn-block" class="btn btn-info btn-block">
+                    </form>
+        	    		</div>
+            		</div>
+            	 </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="addcommunity" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel2">Topluluk Ekle</h4>
+        </div>
+        <div class="modal-body">
+            <div class="container">
+              <div class="row centered-form">
+                <div class="col-xs-12 col-sm-8 col-md-6 center ">
+                	<div class="panel panel-default">
+                  	<div class="panel-body" id="addcomcontents">
+                      <form  action="Javascript:AddCommunity();" role="form" method="post" role="form" style="display: block;">
+                          <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                              <div class="form-group">
+                                <input type="text" name="clubname" id="clubname2" class="form-control input-sm" placeholder="Topluluk Adı" required>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                              <div class="form-group">
+                                <input type="text" name="fname" id="fname2" class="form-control input-sm" placeholder="Başkan Adı" required>
+                              </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                              <div class="form-group">
+                                <input type="text" name="lname" id="lname2" class="form-control input-sm" placeholder="Başkan Soyadı" required>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="row">
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                              <div class="form-group">
+                                <input type="text" name="mobile" id="mobile2" class="form-control input-sm" placeholder="Başkan Telefonu" required>
+                              </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                              <div class="form-group">
+                                <input type="text" name="number" id="number2" class="form-control input-sm" placeholder="Başkan Öğrenci Numarası" required>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                              <div class="form-group">
+                                <input type="text" name="advisor" id="advisor2" class="form-control input-sm" placeholder="Danışman" required>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                              <div class="form-group">
+                                <input type="text" name="email" id="email2" class="form-control input-sm" placeholder="E-Mail" required>
+                              </div>
+                            </div>
+                          </div>
+        			    		<input type="submit" value="Kaydet" class="btn btn-info btn-block" class="btn btn-info btn-block">
                     </form>
         	    		</div>
             		</div>
@@ -74,7 +154,7 @@ include("../config.php");
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Edit Club</h4>
+        <h4 class="modal-title" id="myModalLabel">Düzenle</h4>
       </div>
       <div class="modal-body">
         <div class="container">
@@ -97,7 +177,7 @@ include("../config.php");
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="myModalLabel">Add New Event</h4>
+          <h4 class="modal-title" id="myModalLabel">Etkinlik ekle</h4>
         </div>
         <div class="modal-body" >
           <div class="container"  >
@@ -109,33 +189,33 @@ include("../config.php");
                         <div class="row">
                           <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                              <input type="text" name="eventname" id="eventname" class="form-control input-sm" placeholder="Event Name" required>
+                              <input type="text" name="eventname" id="eventname" class="form-control input-sm" placeholder="Etkinlik Adı" required>
                             </div>
                           </div>
                         </div>
                         <div class="row">
                           <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                              <textarea  name="description" id="description" rows="5"  placeholder="Enter Address Here.." class="form-control" required></textarea>
+                              <textarea  name="description" id="description" rows="5"  placeholder="Açıklama" class="form-control" required></textarea>
                             </div>
                           </div>
                         </div>
                         <div class="row">
                           <div class="col-xs-6 col-sm-6 col-md-6">
                             <div class="form-group">
-                              <input type="date"  name="date" id="date" class="form-control input-sm" placeholder="date" required>
+                              <input type="date"  name="date" id="date" class="form-control input-sm" placeholder="Tarih" required>
                             </div>
                           </div>
                           <div class="col-xs-6 col-sm-6 col-md-6">
                             <div class="form-group">
-                              <input type="text" name="hour" id="hour" class="form-control input-sm" placeholder="Hour" required>
+                              <input type="text" name="hour" id="hour" class="form-control input-sm" placeholder="Saat" required>
                             </div>
                           </div>
                         </div>
                         <div class="row">
                           <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                              <input type="text" name="location" id="location" class="form-control input-sm" placeholder="location" required>
+                              <input type="text" name="location" id="location" class="form-control input-sm" placeholder="Yer" required>
                             </div>
                           </div>
                         </div>
@@ -191,7 +271,7 @@ include("../config.php");
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Edit New Event</h4>
+        <h4 class="modal-title" id="myModalLabel">Düzenle</h4>
       </div>
       <div class="modal-body">
         <div class="container">
@@ -214,7 +294,7 @@ include("../config.php");
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Event Details</h4>
+        <h4 class="modal-title" id="myModalLabel">Etkinlik Detayları</h4>
       </div>
       <div class="modal-body">
         <div class="container">
@@ -232,12 +312,35 @@ include("../config.php");
   </div>
 </div>
 
+<div class="modal fade" id="clubdetails" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Detay</h4>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+          <div class="row centered-form">
+            <div class="col-xs-12 col-sm-8 col-md-6 center ">
+              <div class="panel panel-default">
+                <div class="panel-body" id="clubdetailscontent">
+                </div>
+              </div>
+            </div>
+           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="modal fade" id="mailform" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="myModalLabel">Send mail</h4>
+          <h4 class="modal-title" id="myModalLabel">Mail Gönder</h4>
         </div>
           <div class="modal-body">
             <div class="container">
@@ -245,7 +348,7 @@ include("../config.php");
                 <div class="col-xs-12 col-sm-8 col-md-6 center ">
                   <div class="panel panel-default">
                     <div class="panel-body" id="mailcontents">
-                      asfasfs
+
                     </div>
                   </div>
                 </div>
@@ -261,14 +364,14 @@ include("../config.php");
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Upload Image</h4>
+        <h4 class="modal-title" id="myModalLabel">Resim Yükle</h4>
       </div>
       <div class="modal-body">
         <div class="container">
           <div class="row centered-form">
             <div class="col-xs-12 col-sm-8 col-md-6 center ">
               <div class="panel panel-default">
-                <div class="panel-body" id="uploadformcontent">                           
+                <div class="panel-body" id="uploadformcontent">
                 </div>
               </div>
             </div>

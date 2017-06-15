@@ -28,33 +28,33 @@ $result=mysqli_query($con,$sql);
         <div class="row">
           <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-              <input type="text" name="editeventname" id="editeventname" class="form-control input-sm" placeholder="Event Name" required value="<?=$inf['name'];?>">
+              <input type="text" name="editeventname" id="editeventname" class="form-control input-sm" placeholder="Etkinlik Adı" required value="<?=$inf['name'];?>">
             </div>
           </div>
         </div>
         <div class="row">
           <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-              <textarea  name="editdescription" id="editdescription" rows="5"  placeholder="Enter Address Here.." class="form-control" required><?=$inf['description'];?></textarea>
+              <textarea  name="editdescription" id="editdescription" rows="5"  placeholder="Açıklama" class="form-control" required><?=$inf['description'];?></textarea>
             </div>
           </div>
         </div>
         <div class="row">
           <div class="col-xs-6 col-sm-6 col-md-6">
             <div class="form-group">
-              <input type="date"  name="editdate" id="editdate" class="form-control input-sm" placeholder="date" required value="<?=$inf['date'];?>">
+              <input type="date"  name="editdate" id="editdate" class="form-control input-sm" placeholder="Tarih" required value="<?=$inf['date'];?>">
             </div>
           </div>
           <div class="col-xs-6 col-sm-6 col-md-6">
             <div class="form-group">
-              <input type="text" name="edithour" id="edithour" class="form-control input-sm" placeholder="Hour" required value="<?=$inf['hour'];?>">
+              <input type="text" name="edithour" id="edithour" class="form-control input-sm" placeholder="Saat" required value="<?=$inf['hour'];?>">
             </div>
           </div>
         </div>
         <div class="row">
           <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-              <input type="text" name="editlocation" id="editlocation" class="form-control input-sm" placeholder="location" required value="<?=$inf['location'];?>">
+              <input type="text" name="editlocation" id="editlocation" class="form-control input-sm" placeholder="Yer" required value="<?=$inf['location'];?>">
             </div>
           </div>
         </div>
@@ -91,7 +91,7 @@ $result=mysqli_query($con,$sql);
             </div>
           </div>
         </div>
-      
+
     <input type="submit" value="Register" class="btn btn-info btn-block" id="editbayrak" name='editbayrak'>
     </form>
 <?php

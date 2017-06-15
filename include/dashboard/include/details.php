@@ -24,44 +24,45 @@ $result=mysqli_query($con,$sql);
       }
     }
     $_SESSION["edit"]=true;?>
-
+    <div class="row">
+      <button type="button" class="btn btn-danger pull-right" style="margin-right:30px; " data-toggle="modal" data-target="#delete" onclick="Javascript:Delete('<?=$inf["id"];?>','0');">Etkinliği Sil</button>
+    </div>
       <div class="panel-body">
         <div class="row">
-
           <div class=" col-md-12 col-lg-12 ">
             <table class="table table-user-information">
               <tbody>
                 <tr>
-                  <td>Owner:</td>
+                  <td>Sahibi:</td>
                   <td><?=$name?></td>
                 </tr>
                 <tr>
-                  <td>Event Name:</td>
+                  <td>Etkinlik Adı:</td>
                   <td><?=$inf['name'];?></td>
                 </tr>
                 <tr>
-                  <td>Description:</td>
+                  <td>Açılama:</td>
                   <td><?=$inf['description'];?></td>
                 </tr>
                 <tr>
-                  <td>Date:</td>
+                  <td>Tarih:</td>
                   <td><?=$inf['date'];?></td>
                 </tr>
                 <tr>
-                  <td>Hour:</td>
+                  <td>Saat:</td>
                   <td><?=$inf['hour'];?></td>
                 </tr>
                 <tr>
-                  <td>Location:</td>
+                  <td>Yer:</td>
                   <td><?=$inf['location'];?></td>
                 </tr>
 
                <tr>
-                 <td>Poster :</td>
+                 <td>Afiş :</td>
                  <td>
                    <?php
                     if ($inf['image']==null) {
-                      echo "poster bulunamadı";
+                      echo "Afiş bulunamadı";
                     }
                     else {
                       ?><a href="include/<?=$inf['image'];?>" rel="lightbox" title="my caption"><img src="include/<?=$inf['image'];?>" width="100"/></a>
@@ -72,10 +73,10 @@ $result=mysqli_query($con,$sql);
                </tr>
                <tr>
                  <td>
-                   Click to upload poster:
+                   Afiş Yükle:
                  </td>
                  <td>
-                   <button type="button" class="btn btn-info"  data-toggle="modal" data-target="#uploadform"  onclick="Javascript:UploadImage(<?=$eventid;?>);">Upload</button>
+                   <button type="button" class="btn btn-info"  data-toggle="modal" data-target="#uploadform"  onclick="Javascript:UploadImage(<?=$eventid;?>);">Yükle</button>
                  </td>
               </tr>
               </tbody>

@@ -1,8 +1,8 @@
-function AddClub(type){
+function AddClub(){
       $.ajax({
       type: "POST",
       url: "include/addclub.php",
-      data: "type="+type+"&clubname="+$("#clubname").val()+"&fname="+$("#fname").val()+"&lname="+$("#lname").val()+"&mobile="+$("#mobile").val()+"&number="+$("#number").val()+"&email="+$("#email").val(),
+      data: "clubname="+$("#clubname").val()+"&fname="+$("#fname").val()+"&lname="+$("#lname").val()+"&advisor="+$("#advisor").val()+"&mobile="+$("#mobile").val()+"&number="+$("#number").val()+"&email="+$("#email").val(),
       success: function(data)
            {
               if(data=="ok"){
@@ -16,6 +16,29 @@ function AddClub(type){
               setTimeout(function () {
                   location.reload()
               }, 1000);
+            }
+           }
+    });
+}
+
+function AddCommunity(){
+      $.ajax({
+      type: "POST",
+      url: "include/addcommunity.php",
+      data: "clubname="+$("#clubname2").val()+"&fname="+$("#fname2").val()+"&lname="+$("#lname2").val()+"&advisor="+$("#advisor2").val()+"&mobile="+$("#mobile2").val()+"&number="+$("#number2").val()+"&email="+$("#email2").val(),
+      success: function(data)
+           {
+              if(data=="ok"){
+                $("#addclubcontents").html("Kayıt Başarılı Şekilde Yapılmıştır.").css("color","green");
+                setTimeout(function () {
+                    location.reload()
+                }, 1000);
+              }
+              else{
+                $("#addclubcontents").html("Kayıt Maalesef Yapılamadı").css("color","red");
+            setTimeout(function () {
+                location.reload()
+            }, 1000);
             }
            }
     });
@@ -37,7 +60,7 @@ function UpdateClub(id,id2,type){
     $.ajax({
     type: "POST",
     url: "include/updateclub.php",
-    data: "id="+id+"&presidentId="+id2+"&type="+type+"&clubname="+$("#editclubname").val()+"&fname="+$("#editfname").val()+"&lname="+$("#editlname").val()+"&mobile="+$("#editmobile").val()+"&number="+$("#editnumber").val()+"&email="+$("#editemail").val(),
+    data: "id="+id+"&presidentId="+id2+"&type="+type+"&clubname="+$("#editclubname").val()+"&fname="+$("#editfname").val()+"&lname="+$("#editlname").val()+"&advisor="+$("#editadvisor").val()+"&mobile="+$("#editmobile").val()+"&number="+$("#editnumber").val()+"&email="+$("#editemail").val(),
     success: function(data)
          {
            if(data=="ok"){
@@ -64,7 +87,7 @@ function AddEvent(){
            {
               if(data=="ok"){
                 $("#addeventcontent").html("Kayıt Başarılı Şekilde Yapılmıştır.").css("color","green");
-                setTimeout(function () {s
+                setTimeout(function () {
                     location.reload()
                 }, 1000);
               }else{
@@ -100,37 +123,36 @@ function Details(id){
        }
   });
 }
-/*
-$("#fileToUpload").submit(function(success){
-      $("#detailscontent").html("Please Wait");
-      success.preventDefault();
-});
-$("#fileToUpload").ajaxForm(function(success){
-      $("#detailscontent").html(success);
-});*/
 
-
-/*function UploadImage(){
+function ClubDetails(id,type){
   $.ajax({
   type: "POST",
-  contentType: "application/json",
-  url: "include/uploadimage.php",
-  //data: $("#fileToUpload").serialize(),
-  //data: $('#uploadImg').prop("files")[0],
-  data: "fileToUpload="+$("#fileToUpload").val(),
+  url: "include/clubdetails.php",
+  data: "clubid="+id+"&type="+type,
   success: function(data)
        {
-            $("#detailscontent").html(data);
+            $("#clubdetailscontent").html(data);
        }
   });
-}*/
-
+}
 
 function UploadImage(id){
   $.ajax({
   type: "POST",
   url: "include/uploadimageform.php",
   data: "eventid="+id,
+  success: function(data)
+       {
+            $("#uploadformcontent").html(data);
+       }
+  });
+}
+
+function Uploadlogo(id,type){
+  $.ajax({
+  type: "POST",
+  url: "include/uploadlogoform.php",
+  data: "clubid="+id+"&type="+type,
   success: function(data)
        {
             $("#uploadformcontent").html(data);
@@ -169,6 +191,42 @@ function MailForm(email){
     success: function(data)
          {
              $("#mailcontents").html(data);
+         }
+  });
+}
+
+function MailForm2(email){
+    $.ajax({
+    type: "POST",
+    url: "include/dashboard/include/mailform2.php",
+    data: "email="+email,
+    success: function(data)
+         {
+             $("#mailcontents").html(data);
+         }
+  });
+}
+
+function SendMail2(){
+    $.ajax({
+    type: "POST",
+    url: "include/smtpemail/epostaend.php",
+    data:"emailaddr="+$("#emailaddr").val()+"&subject="+$("#subject").val()+"&message="+$("#message").val(),
+    success: function(data)
+         {
+           {
+             if(data=="ok"){
+               $("#mailcontents").html("Mail Başarılı Şekilde Gönderilmiştir.").css("color","green");
+               setTimeout(function () {
+                   location.reload()
+               }, 1000);
+             }else{
+                 $("#mailcontents").html(data).css("color","red");
+                 setTimeout(function () {
+                     location.reload()
+                 }, 3000);
+             }
+           }
          }
   });
 }

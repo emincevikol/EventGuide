@@ -26,7 +26,9 @@ else {
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="Index.php">Event Guide</a>
+        <a class="navbar-brand" href="Index.php">Etkinlikler</a>
+        <a class="navbar-brand" href="community.php">Öğrenci Toplulukları</a>
+        <a class="navbar-brand" href="club.php">Öğrenci Klüpleri</a>
       </div>
       <div id="navbar" class="navbar-collapse collapse">
         <form  class="navbar-form navbar-right">
@@ -39,9 +41,9 @@ else {
           <?php } ?>
 
           <input type="button" class="<?php echo $btn ?>" onclick=<?php echo $logout ?> value="<?php if($loginstatus){
-                                            echo "Sign Out";
+                                            echo "Çıkış";
                                           }else {
-                                            echo "Sign in";}
+                                            echo "Giriş";}
                                     ?>">
 
       </form>

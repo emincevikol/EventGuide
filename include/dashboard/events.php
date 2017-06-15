@@ -13,14 +13,14 @@
                   <div class="row">
                       <div class="col-lg-12">
                           <h1 class="page-header"><i class="fa fa-fw fa-calendar"></i>
-                              Events
+                              Etkinlikler
                           </h1>
                           <ol class="breadcrumb">
                               <li>
                                   <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
                               </li>
                               <li class="active">
-                                  <i class="fa fa-fw fa-calendar"></i> Events
+                                  <i class="fa fa-fw fa-calendar"></i> Etkinlikler
                               </li>
                           </ol>
                       </div>
@@ -29,18 +29,18 @@
                   <div class="col-lg-12">
                     <div class="row">
                       <?php  $_SESSION["event"]=true;  $_SESSION["community"]=false; $_SESSION["club"]=false;?>
-                      <button type="button" class="btn btn-primary btn-lg pull-right" data-toggle="modal" data-target="#addevent">Add New Event</button>
+                      <button type="button" class="btn btn-primary btn-lg pull-right" data-toggle="modal" data-target="#addevent">Etkinlik ekle</button>
                     </div>
                     <div class="row">
-                      <div class="alert alert-info" style="margin-top:20px; margin-bottom:0px; "role="alert">Waiting for confirm</div>
+                      <div class="alert alert-info" style="margin-top:20px; margin-bottom:0px; "role="alert">Onay bekleyen Etkinlikler</div>
                       <table class="table table-striped">
                         <thead >
                           <tr>
                             <th>#</th>
-                            <th>Event name</th>
-                            <th>Owner</th>
-                            <th>Date</th>
-                            <th>Location</th>
+                            <th>Etkinlik Adı</th>
+                            <th>Sahibi</th>
+                            <th>Tarih</th>
+                            <th>Yer</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -64,12 +64,12 @@
                                           ?>
                                           <td><?php echo $inf["date"] ?></td>
                                           <td><?php echo $inf["location"] ?></td>
-                                            <td><button type="button" class="btn btn-danger pull-right" style=" margin-left: 10px;" data-toggle="modal" data-target="#delete" onclick="Javascript:Delete('<?=$inf["id"];?>', '0');">Delete</button>
+                                            <td>
                                                 <?php if($inf[status]==0){  ?>
-                                                  <button type="button" class="btn btn-primary pull-right" style=" margin-left: 10px;"  data-toggle="modal" data-target="#confirm" onclick="Javascript:Confirm('<?=$inf["id"];?>');">Confirm</button>
+                                                  <button type="button" class="btn btn-primary pull-right" style=" margin-left: 5px;"  data-toggle="modal" data-target="#confirm" onclick="Javascript:Confirm('<?=$inf["id"];?>');">Onayla</button>
                                                 <?php }  ?>
-                                                <button type="button" class="btn btn-success pull-right" style=" margin-left: 10px;" data-toggle="modal" data-target="#editevent" onclick="Javascript:EditEvent('<?=$inf["id"];?>');">Edit</button>
-                                                <button type="button" class="btn btn-info pull-right" style=" margin-left: 10px;" data-toggle="modal" data-target="#details" onclick="Javascript:Details('<?=$inf["id"];?>');">Details</button>
+                                                <button type="button" class="btn btn-success pull-right" style=" margin-left: 5px;" data-toggle="modal" data-target="#editevent" onclick="Javascript:EditEvent('<?=$inf["id"];?>');">Düzenle</button>
+                                                <button type="button" class="btn btn-info pull-right" style=" margin-left:5px;" data-toggle="modal" data-target="#details" onclick="Javascript:Details('<?=$inf["id"];?>');">Detay</button>
                                             </td>
                                     </tr>
                                     <?php
@@ -80,15 +80,15 @@
                       </table>
                     </div>
                     <div class="row">
-                      <div class="alert alert-success" style="margin-top:20px; margin-bottom:0px; "role="alert">Approaching Events</div>
+                      <div class="alert alert-success" style="margin-top:20px; margin-bottom:0px; "role="alert">Yaklaşan Etkinlikler</div>
                       <table class="table table-striped">
                         <thead >
                           <tr>
                             <th>#</th>
-                            <th>Event name</th>
-                            <th>Owner</th>
-                            <th>Date</th>
-                            <th>Location</th>
+                            <th>Etkinlik Adı</th>
+                            <th>Sahibi</th>
+                            <th>Tarih</th>
+                            <th>Yer</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -111,13 +111,13 @@
                                           }
                                           ?>
                                           <td><?php echo $inf["date"] ?></td>
-                                          <td><?php echo $inf["location"] ?></td>
-                                            <td><button type="button" class="btn btn-danger pull-right" style=" margin-left: 10px;" data-toggle="modal" data-target="#delete" onclick="Javascript:Delete('<?=$inf["id"];?>','0');">Delete</button>
-                                                <?php if($inf[status]==1){  ?>
-                                                  <button type="button" class="btn btn-warning pull-right" style=" margin-left: 10px;"  data-toggle="modal" data-target="#unconfirm" onclick="Javascript:Unconfirm('<?=$inf["id"];?>');">Unconfirm</button>
-                                                <?php } ?>
-                                                <button type="button" class="btn btn-success pull-right" style=" margin-left: 10px;" data-toggle="modal" data-target="#editevent" onclick="Javascript:EditEvent('<?=$inf["id"];?>');">Edit</button>
-                                                <button type="button" class="btn btn-info pull-right" style=" margin-left: 10px;" data-toggle="modal" data-target="#details" onclick="Javascript:Details('<?=$inf["id"];?>');">Details</button>
+                                          <!--<td><?php echo $inf["location"] ?></td> -->
+                                            <td>
+                                              <?php if($inf[status]==1){  ?>
+                                                <button type="button" class="btn btn-warning pull-right" style=" margin-left: 5px; "  data-toggle="modal" data-target="#unconfirm" onclick="Javascript:Unconfirm('<?=$inf["id"];?>');">Onay Kaldır</button>
+                                              <?php } ?>
+                                                <button type="button" class="btn btn-success pull-right" style=" margin-left: 5px;" data-toggle="modal" data-target="#editevent" onclick="Javascript:EditEvent('<?=$inf["id"];?>');">Düzenle</button>
+                                                <button type="button" class="btn btn-info pull-right" style=" margin-left: 5px;" data-toggle="modal" data-target="#details" onclick="Javascript:Details('<?=$inf["id"];?>');">Detay</button>
                                             </td>
                                     </tr>
                                     <?php
@@ -128,15 +128,15 @@
                       </table>
                     </div>
                     <div class="row">
-                      <div class="alert alert-danger" style="margin-top:20px; margin-bottom:0px; "role="alert">Past Events</div>
+                      <div class="alert alert-danger" style="margin-top:20px; margin-bottom:0px; "role="alert">Geçmiş Etkinlikler</div>
                       <table class="table table-striped">
                         <thead >
                           <tr>
                             <th>#</th>
-                            <th>Event name</th>
-                            <th>Owner</th>
-                            <th>Date</th>
-                            <th>Location</th>
+                            <th>Etkinlik Adı</th>
+                            <th>Sahibi</th>
+                            <th>Tarih</th>
+                            <th>Yer</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -160,8 +160,8 @@
                                           ?>
                                           <td><?php echo $inf["date"] ?></td>
                                           <td><?php echo $inf["location"] ?></td>
-                                            <td><button type="button" class="btn btn-danger pull-right" style=" margin-left: 10px;" data-toggle="modal" data-target="#delete" onclick="Javascript:Delete('<?=$inf["id"];?>','0');">Delete</button>
-                                            <button type="button" class="btn btn-info pull-right" style=" margin-left: 10px;" data-toggle="modal" data-target="#details" onclick="Javascript:Details('<?=$inf["id"];?>');">Details</button></td>
+                                            <td>
+                                            <button type="button" class="btn btn-info pull-right" style=" margin-left: 10px;" data-toggle="modal" data-target="#details" onclick="Javascript:Details('<?=$inf["id"];?>');">Detay</button></td>
                                     </tr>
                                     <?php
                                     $counter++;
@@ -181,14 +181,14 @@
                   <div class="row">
                       <div class="col-lg-12">
                           <h1 class="page-header"><i class="fa fa-fw fa-calendar"></i>
-                              Events
+                              Etkinlikler
                           </h1>
                           <ol class="breadcrumb">
                               <li>
                                   <i class="fa fa-dashboard"></i>  <a href="index.php">Dashboard</a>
                               </li>
                               <li class="active">
-                                  <i class="fa fa-fw fa-calendar"></i> Events
+                                  <i class="fa fa-fw fa-calendar"></i> Etkinlikler
                               </li>
                           </ol>
                       </div>
@@ -197,18 +197,18 @@
                   <div class="col-lg-12">
                     <div class="row">
                       <?php  $_SESSION["event"]=true;  $_SESSION["community"]=false; $_SESSION["club"]=false;?>
-                      <button type="button" class="btn btn-primary btn-lg pull-right" data-toggle="modal" data-target="#addevent">Add New Event</button>
+                      <button type="button" class="btn btn-primary btn-lg pull-right" data-toggle="modal" data-target="#addevent">Etkinlik ekle</button>
                     </div>
                     <div class="row">
-                      <div class="alert alert-info" style="margin-top:20px; margin-bottom:0px; "role="alert">Waiting for confirm</div>
+                      <div class="alert alert-info" style="margin-top:20px; margin-bottom:0px; "role="alert">Onay bekleyen Etkinlikler</div>
                       <table class="table table-striped">
                         <thead >
                           <tr>
                             <th>#</th>
-                            <th>Event name</th>
-                            <th>Owner</th>
-                            <th>Date</th>
-                            <th>Location</th>
+                            <th>Etkinlik Adı</th>
+                            <th>Sahibi</th>
+                            <th>Tarih</th>
+                            <th>Yer</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -232,8 +232,8 @@
                                             <td><?php echo $inf["date"] ?></td>
                                             <td><?php echo $inf["location"] ?></td>
                                             <td>
-                                              <button type="button" class="btn btn-success pull-right" style=" margin-left: 10px;" data-toggle="modal" data-target="#editevent" onclick="Javascript:EditEvent('<?=$inf["id"];?>');">Edit</button>
-                                              <button type="button" class="btn btn-info pull-right" style=" margin-left: 10px;" data-toggle="modal" data-target="#details" onclick="Javascript:Details('<?=$inf["id"];?>');">Details</button>
+                                              <button type="button" class="btn btn-success pull-right" style=" margin-left: 10px;" data-toggle="modal" data-target="#editevent" onclick="Javascript:EditEvent('<?=$inf["id"];?>');">Düzenle</button>
+                                              <button type="button" class="btn btn-info pull-right" style=" margin-left: 10px;" data-toggle="modal" data-target="#details" onclick="Javascript:Details('<?=$inf["id"];?>');">Detay</button>
                                             </td>
                                           <?php } ?>
                                     </tr>
@@ -245,15 +245,15 @@
                       </table>
                     </div>
                     <div class="row">
-                      <div class="alert alert-success" style="margin-top:20px; margin-bottom:0px; "role="alert">Approaching Events</div>
+                      <div class="alert alert-success" style="margin-top:20px; margin-bottom:0px; "role="alert">Yaklaşan Etkinlikler</div>
                       <table class="table table-striped">
                         <thead >
                           <tr>
                             <th>#</th>
-                            <th>Event name</th>
-                            <th>Owner</th>
-                            <th>Date</th>
-                            <th>Location</th>
+                            <th>Etkinlik Adı</th>
+                            <th>Sahibi</th>
+                            <th>Tarih</th>
+                            <th>Yer</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -278,8 +278,8 @@
                                             <td><?php echo $inf["date"] ?></td>
                                             <td><?php echo $inf["location"] ?></td>
                                             <td>
-                                            <button type="button" class="btn btn-success pull-right" style=" margin-left: 10px;" data-toggle="modal" data-target="#editevent" onclick="Javascript:EditEvent('<?=$inf["id"];?>');">Edit</button>
-                                            <button type="button" class="btn btn-info pull-right" style=" margin-left: 10px;" data-toggle="modal" data-target="#details" onclick="Javascript:Details('<?=$inf["id"];?>');">Details</button>
+                                            <button type="button" class="btn btn-success pull-right" style=" margin-left: 10px;" data-toggle="modal" data-target="#editevent" onclick="Javascript:EditEvent('<?=$inf["id"];?>');">Düzenle</button>
+                                            <button type="button" class="btn btn-info pull-right" style=" margin-left: 10px;" data-toggle="modal" data-target="#details" onclick="Javascript:Details('<?=$inf["id"];?>');">Detay</button>
 
                                             </td>
                                           <?php } ?>
@@ -292,15 +292,15 @@
                       </table>
                     </div>
                     <div class="row">
-                      <div class="alert alert-danger" style="margin-top:20px; margin-bottom:0px; "role="alert">Past Events</div>
+                      <div class="alert alert-danger" style="margin-top:20px; margin-bottom:0px; "role="alert">Geçmiş Etkinlikler</div>
                       <table class="table table-striped">
                         <thead >
                           <tr>
                             <th>#</th>
-                            <th>Event name</th>
-                            <th>Owner</th>
-                            <th>Date</th>
-                            <th>Location</th>
+                            <th>Etkinlik Adı</th>
+                            <th>Sahibi</th>
+                            <th>Tarih</th>
+                            <th>Yer</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -325,7 +325,7 @@
                                             <td><?php echo $inf["date"] ?></td>
                                             <td><?php echo $inf["location"] ?></td>
                                             <td>
-                                              <button type="button" class="btn btn-info pull-right" style=" margin-left: 10px;" data-toggle="modal" data-target="#details" onclick="Javascript:Details('<?=$inf["id"];?>');">Details</button>
+                                              <button type="button" class="btn btn-info pull-right" style=" margin-left: 10px;" data-toggle="modal" data-target="#details" onclick="Javascript:Details('<?=$inf["id"];?>');">Detay</button>
                                             </td>
                                           <?php } ?>
                                     </tr>
