@@ -69,7 +69,7 @@ $mail->SMTPAuth=true;
 $mail->SMTPSecure = "tls";
 $mail->Host="eposta.cbu.edu.tr:587";
 $mail->Username="muhammedemincevikol@ogr.cbu.edu.tr";
-$mail->Password="34483816186";
+$mail->Password="password";
 $mail->From="muhammedemincevikol@ogr.cbu.edu.tr";
 
 $mail->FromName="Event Guide";
